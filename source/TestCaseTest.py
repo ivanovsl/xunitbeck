@@ -1,5 +1,6 @@
 from WasRun import WasRun
 from TestCase import TestCase
+from TestResult import TestResult
 
 class BeckTestCaseTest(TestCase):
 
@@ -15,7 +16,13 @@ class BeckTestCaseTest(TestCase):
         test = WasRun("wasBrokenMethod")
         result = test.run()
         assert "1 run. 1 failed" == result.summary()
+    def testFailedResultFormatted(self):
+        result = TestResult()
+        result.testStarted()
+        result.testFailed()
+        assert "1 run, 1 failed" == result.summary()
 
 BeckTestCaseTest("testTemplateMethod").run()
 BeckTestCaseTest("testResult").run()
 BeckTestCaseTest("testFailedResult").run()
+BeckTestCaseTest("testFailedResultFormatted").run()
