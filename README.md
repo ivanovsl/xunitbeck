@@ -1,1 +1,1 @@
-Kent Beck
+Kent Beck - TDD book
